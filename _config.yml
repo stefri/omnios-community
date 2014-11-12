@@ -1,0 +1,19 @@
+markdown: kramdown
+
+title: "OmniOS Documentation"
+description: "Community Documentation for OmniOS the Illumos Server Distribution - Survial and Migration Guides"
+keywords:
+- OmniOS
+- Illumos
+- Solaris
+- OpenSolaris
+- Reference
+- Migration
+- Documentation
+
+highlighter: pygments
+permalink: /:categories/:title.html
+baseurl:
+
+kramdown:
+  input: GFM

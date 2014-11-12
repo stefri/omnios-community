@@ -1,0 +1,28 @@
+<div id="scroller-anchor">
+  <div id="scroller">
+    <h6>Contents</h6>
+    {% for pg in site.pages %}
+      {% if pg.partof == page.partof and pg.outof %}
+        {% assign totalPages= pg.outof %}
+      {% endif %}
+    {% endfor %}
+
+    {% if totalPages %}
+      <ul>
+        {% for i in (1..totalPages) %}
+          {% for pg in site.pages %}
+            {% if pg.partof == page.partof and pg.num and pg.num == i %}
+            <li class="subpage"><a href="{{ site.baseurl }}{{ pg.url }}">{{ pg.title }}</a></li>
+            {% endif %}
+            {% if pg.partof == page.partof and pg.num and page.num and page.num == pg.num and pg.num == i %}
+            <div id="toc"></div>
+            {% endif %}
+          {% endfor %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>** ERROR **. Couldn't find the total number of pages in this guide.
+      Have you declared the `outof` tag in your YAML front matter?</p>
+    {% endif %}
+  </div>
+</div>
